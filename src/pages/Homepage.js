@@ -1,9 +1,43 @@
 import Card from "../components/card";
 import { IoBulb } from "react-icons/io5";
 import { BsFillLightbulbOffFill } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Homepage = ({ tasks, name }) => {
+
+    const [count, setCount] = useState(0)
+    let [anotherName, setName] = useState("Ned stark");
+
+    let nameRef = useRef();
+
+    const submitButton = () => {
+
+     
+
+      setName(nameRef.current.value);
+
+      console.log('new name is',anotherName)
+
+ 
+   
+    };
+
+
+    const handleOnChange = (e)=>{
+      console.log(e.target.value)
+    }
+   
+
+
+
+    
+
+    useEffect(()=>{
+
+     
+      console.log(`I have been updated by useEffect`)
+    }, [count])
+
 
   
   const [isBulbOn, setBulbOn] = useState(false);
@@ -21,12 +55,14 @@ const Homepage = ({ tasks, name }) => {
   const turnBulbOnOff = () => {
     if (isBulbOn) {
       setBulbOn(false);
+     setCount(2)
     } else {
       setBulbOn(true);
+      setCount(1)
     }
   };
 
-  console.log(" tasksCompleted", tasksCompleted);
+
 
   return (
     <div>
@@ -116,6 +152,23 @@ const Homepage = ({ tasks, name }) => {
         <Card title={titles[2]} tasksCompleted={tasksCompleted[2]} />
         <Card title={titles[3]} tasksCompleted={tasksCompleted[3]} />
       </div>
+
+      <input
+
+         placehoder="enter your preferred GOT character..."
+
+        // onChange={handleOnChange}
+
+       ref={nameRef}
+
+         type="text"
+
+       />
+        <button type="button" onClick={submitButton}>
+
+Submit
+
+</button>
     </div>
   );
 };
