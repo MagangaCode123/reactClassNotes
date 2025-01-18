@@ -8,15 +8,12 @@ const Homepage = ({ tasks, name }) => {
     const [count, setCount] = useState(0)
     let [anotherName, setName] = useState("Ned stark");
 
-    let nameRef = useRef();
+    let nameRef = useRef(); 
 
     const submitButton = () => {
 
      
 
-      setName(nameRef.current.value);
-
-      console.log('new name is',anotherName)
 
  
    
@@ -35,7 +32,7 @@ const Homepage = ({ tasks, name }) => {
     useEffect(()=>{
 
      
-      console.log(`I have been updated by useEffect`)
+     
     }, [count])
 
 
@@ -74,11 +71,13 @@ const Homepage = ({ tasks, name }) => {
           gridTemplateColumns: "1",
         }}
       >
+        <div className="flex flex-row justify-end mr-4 mt-2 ">
         {isBulbOn ? (
+          
           <IoBulb
             style={{
               marginLeft: 40,
-              fontSize: "2em",
+              fontSize: "30px",
             }}
             onClick={turnBulbOnOff}
           />
@@ -86,16 +85,19 @@ const Homepage = ({ tasks, name }) => {
           <BsFillLightbulbOffFill
             style={{
               marginLeft: 40,
-              fontSize: "2em",
+              fontSize: "30px",
             }}
             onClick={turnBulbOnOff}
           />
+          
         )}
-
+        </div>
         <div
           style={{
             marginLeft: 40,
             fontSize: 14,
+            marginTop: 10,
+            marginBottom: 4,
           }}
         >
           <p>Hello {name}</p>
@@ -104,7 +106,7 @@ const Homepage = ({ tasks, name }) => {
         <div
           style={{
             position: "absolute",
-            top: 20,
+            top: 60,
             left: 40,
           }}
         >
@@ -119,17 +121,17 @@ const Homepage = ({ tasks, name }) => {
                 fontWeight: "bold",
               }}
             >
-              Your Projects
+              Your Projects(4)
             </p>
           </div>
         </div>
         <div
           style={{
             position: "absolute",
-            right: 120,
-            top: 60,
+            right: 40,
+            top: 70,
 
-            width: 1 / 3,
+           
           }}
         >
           <img

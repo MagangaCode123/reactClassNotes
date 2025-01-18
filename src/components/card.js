@@ -1,9 +1,11 @@
 import { CiCirclePlus } from "react-icons/ci";
 import { PiDotsThreeCircleLight } from "react-icons/pi";
+import { useNavigate, Link } from "react-router-dom";
+
 
 const Card = ({title,tasksCompleted})=>{
 
-   
+   const navigate = useNavigate()
 
     return(
         <div 
@@ -43,9 +45,9 @@ const Card = ({title,tasksCompleted})=>{
             }}
             >Tasks completed: {tasksCompleted}</p>
 
-           
-            <CiCirclePlus  style={{fontSize: "3em",position: "absolute",bottom:9, right:10 }}/>
-
+           <Link to='/add-task'>
+            <CiCirclePlus style={{fontSize: "3em",position: "absolute",bottom:9, right:10 }}/>
+            </Link>
             <PiDotsThreeCircleLight style={{fontSize: "3em",position: "absolute",bottom:9, left:10 }} />
        
         </div>

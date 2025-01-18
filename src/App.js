@@ -1,6 +1,8 @@
 import Homepage from './pages/Homepage';
 import logo from './logo.svg';
 import { useState } from 'react';
+import {Routes, Route} from "react-router-dom"
+import AddTask from './pages/AddToDoList';
 
 
 function App() {
@@ -97,13 +99,19 @@ function App() {
 
 
   return (
-    <div 
-    style={{
+    <>
+    <Routes>
+      
+      <Route path='/add-task' element={<AddTask />} />
 
-    }}
-    >
+    </Routes>
+
+    <div>
    <Homepage tasks={taskMade} name={username} />
+
     </div>
+
+    </>
   );
 }
 
