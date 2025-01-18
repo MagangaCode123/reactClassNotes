@@ -101,15 +101,16 @@ function App() {
   return (
     <>
     <Routes>
-      
-      <Route path='/add-task' element={<AddTask />} />
+      <Route path='/' element={<Homepage tasks={taskMade} name={username} />} />
+      <Route path='/add-task/:name' element={<AddTask tasks={taskMade} />} />
+
 
     </Routes>
 
-    <div>
+    {/* <div>
    <Homepage tasks={taskMade} name={username} />
 
-    </div>
+    </div> */}
 
     </>
   );

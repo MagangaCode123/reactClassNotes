@@ -5,6 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Card = ({title,tasksCompleted})=>{
 
+    console.log('passed title', title)
+
    const navigate = useNavigate()
 
     return(
@@ -45,9 +47,9 @@ const Card = ({title,tasksCompleted})=>{
             }}
             >Tasks completed: {tasksCompleted}</p>
 
-           <Link to='/add-task'>
-            <CiCirclePlus style={{fontSize: "3em",position: "absolute",bottom:9, right:10 }}/>
-            </Link>
+          
+            <CiCirclePlus onClick={()=> navigate(`/add-task/${title}`)} style={{fontSize: "3em",position: "absolute",bottom:9, right:10 }}/>
+         
             <PiDotsThreeCircleLight style={{fontSize: "3em",position: "absolute",bottom:9, left:10 }} />
        
         </div>
